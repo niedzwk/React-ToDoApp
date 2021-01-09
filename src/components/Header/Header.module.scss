@@ -1,0 +1,24 @@
+.header {
+  background-color: rgb(146, 0, 0);
+  color: white;
+  padding: 10px 10px;
+  font-size: 20px;
+  font-family: Potta One;
+  position: sticky;
+  width: 100%;
+  min-height: 30px;
+
+  &__hamburger {
+    display: block;
+    position: relative;
+    left: 15px;
+  }
+
+  &__title {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

@@ -1,0 +1,27 @@
+.addTask-form {
+  text-align: center;
+  padding: 20px;
+  border: 2px solid black;
+  margin: 20px;
+  border-radius: 20px;
+
+  &__label {
+    display: block;
+    padding: 5px;
+    border-bottom: 2px solid black;
+    margin: 2px;
+  }
+  &__label > p {
+    text-transform: uppercase;
+  }
+
+  &__submit {
+    text-transform: uppercase;
+    color: white;
+    background-color: rgb(146, 0, 0);
+    padding: 10px;
+    border: none;
+    margin: 5px;
+    border-radius: 10px;
+  }
+}
