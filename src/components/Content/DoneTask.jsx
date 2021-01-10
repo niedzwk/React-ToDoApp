@@ -14,6 +14,14 @@ const DoneTask = (props) => {
       ? tasks.filter((task) => task.done)
       : null;
 
+  const handleDeleteTask = (id) => {
+    const taskArray = tasks.filter((task) => task.id !== id);
+
+    setTasks(taskArray);
+
+    localStorage.setItem("task", JSON.stringify(taskArray));
+  };
+
   const task =
     taskToBeDone !== null && taskToBeDone.length >= 0
       ? taskToBeDone.map((task) => (
@@ -21,7 +29,10 @@ const DoneTask = (props) => {
             <p>{task.name}</p>
             <p>{task.date}</p>
             <div className={style("icons")}>
-              <i class="fas fa-trash-alt"></i>
+              <i
+                class="fas fa-trash-alt"
+                onClick={() => handleDeleteTask(task.id)}
+              ></i>
             </div>
           </div>
         ))

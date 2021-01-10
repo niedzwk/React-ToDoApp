@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <StoreProvider>
         <Header />
-        <Router>
+        <Router basename={process.env.PUBLIC_URL}>
           <div>
             <Menu />
             <Content />
