@@ -29,12 +29,13 @@
   }
 
   &__submit {
+    width: 100px;
     text-transform: uppercase;
     color: white;
     background-color: rgb(146, 0, 0);
     padding: 10px;
     border: none;
     margin: 5px;
-    border-radius: 10px;
+    border-radius: 5px;
   }
 }
