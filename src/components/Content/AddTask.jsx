@@ -11,7 +11,13 @@ const AddTask = () => {
       <form className={style("form")}>
         <label className={style("label")}>
           <p>Zadanie</p>
-          <input type="text" name="" id="" />
+          <input
+            type="text"
+            name=""
+            id=""
+            placeholder="Proszę podać zadanie."
+            className={style("textinput")}
+          />
         </label>
         <label className={style("label")}>
           <p>Data</p>
@@ -19,7 +25,7 @@ const AddTask = () => {
         </label>
         <label className={style("label")}>
           <p>Ważne</p>
-          <input type="checkbox" name="" id="" />
+          <input type="checkbox" name="" id="" className={style("checkbox")} />
         </label>
         <input
           type="submit"

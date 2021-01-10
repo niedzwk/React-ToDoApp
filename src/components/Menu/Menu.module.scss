@@ -2,9 +2,31 @@
   display: flex;
   flex-direction: column;
 
+  @media (min-width: 1025px) {
+    display: flex;
+    top: 0px;
+    // flex-direction: row;
+    // flex-grow: 1;
+    position: sticky;
+    background-color: rgb(146, 0, 0);
+  }
+
   &__link {
+    display: block;
     text-align: center;
     border-bottom: 2px solid rgb(54, 54, 54);
+
+    @media (min-width: 1025px) {
+      display: flex;
+      width: 20%;
+      justify-content: center;
+      align-content: center;
+      align-items: center;
+    }
+
+    &__navlink {
+      background-color: yellow;
+    }
   }
   &__link > a {
     display: block;
@@ -15,13 +37,13 @@
     transition-duration: 0.2s;
     font-family: "Yusei Magic", sans-serif;
 
+    @media (min-width: 1025px) {
+      color: white;
+    }
+
     &:active {
       background-color: rgb(240, 240, 240);
     }
-
-    // &:hover {
-    //   background-color: rgb(240, 240, 240);
-    // }
   }
   &__link > a.active {
     color: white;
@@ -31,9 +53,20 @@
 
   &__disable {
     display: none;
-  }
-}
 
-.disable {
-  display: none;
+    @media (min-width: 1025px) {
+      width: 30%;
+      display: flex;
+    }
+  }
+
+  &__ul {
+    @media (min-width: 1025px) {
+      display: flex;
+      flex-grow: 1;
+      justify-content: center;
+      //   align-content: stretch;
+      //   align-items: stretch;
+    }
+  }
 }

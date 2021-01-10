@@ -11,10 +11,14 @@ const Menu = () => {
   const { isActive } = useContext(StoreContext);
 
   return (
-    <nav className={isActive ? style() : style("disable")}>
-      <ul>
+    <nav
+      className={
+        isActive || window.innerWidth > 1024 ? style() : style("disable")
+      }
+    >
+      <ul className={style("ul")}>
         <li className={style("link")}>
-          <NavLink exact to="/">
+          <NavLink exact to="/" className={style("navlink")}>
             DO ZROBIENIA
           </NavLink>
         </li>

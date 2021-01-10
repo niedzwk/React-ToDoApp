@@ -1,9 +1,11 @@
 .addTask-form {
+  width: 80%;
+  background-color: white;
   text-align: center;
   padding: 20px;
-  border: 2px solid black;
+  border-top: 20px solid rgb(146, 0, 0);
   margin: 20px;
-  border-radius: 20px;
+  border-radius: 5px;
 
   &__label {
     display: block;
@@ -13,6 +15,17 @@
   }
   &__label > p {
     text-transform: uppercase;
+  }
+
+  &__textinput {
+    width: 80%;
+    padding: 10px;
+  }
+
+  &__checkbox {
+    width: 20px;
+    border: none;
+    background-color: yellow;
   }
 
   &__submit {

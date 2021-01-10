@@ -1,9 +1,14 @@
 .task {
   text-align: center;
   padding: 20px;
-  border: 2px solid black;
+  border-top: 20px solid rgb(146, 0, 0);
   margin: 20px;
-  border-radius: 20px;
+  background-color: white;
+  border-radius: 5px;
+
+  @media (min-width: 1025px) {
+    width: 40%;
+  }
 
   &__icons {
     font-size: 20px;

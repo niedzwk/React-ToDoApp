@@ -18,7 +18,7 @@ const Task = (props) => {
     </div>
   ));
 
-  return <div>{task}</div>;
+  return <>{task}</>;
 };
 
 export default Task;

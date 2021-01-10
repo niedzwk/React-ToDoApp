@@ -12,6 +12,7 @@ const style = bemCssModule(ContentStyles);
 const tasks = [
   { id: 1, content: "wykonać prace na studia", date: "14.02.2021" },
   { id: 2, content: "zadzwonić do lekarza", date: "15.01.2021" },
+  { id: 3, content: "pójśc na siłownie", date: "13.01.2021" },
 ];
 
 const Content = () => {

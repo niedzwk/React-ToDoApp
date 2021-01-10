@@ -8,4 +8,5 @@ body {
   height: 200vh;
   display: flex;
   flex-direction: column;
+  background-color: rgb(231, 231, 231);
 }

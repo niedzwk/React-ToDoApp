@@ -1,7 +1,7 @@
 import React from "react";
 import bemCssModule from "bem-css-modules";
 
-import { default as DoneTaskStyles } from "./DoneTask.module.scss";
+import { default as DoneTaskStyles } from "./Task.module.scss";
 
 const style = bemCssModule(DoneTaskStyles);
 
@@ -13,7 +13,7 @@ const DoneTask = (props) => {
     </div>
   ));
 
-  return <div>{task}</div>;
+  return <>{task}</>;
 };
 
 export default DoneTask;
