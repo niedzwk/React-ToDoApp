@@ -1,0 +1,8 @@
+{
+  "short_name": "ToDoList App",
+  "name": "Create React ToDoList",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
