@@ -3,6 +3,7 @@ import bemCssModule from "bem-css-modules";
 
 import { default as AddTaskStyles } from "./AddTask.module.scss";
 import { StoreContext } from "../../store/StoreProvider";
+import { NavLink } from "react-router-dom";
 
 const style = bemCssModule(AddTaskStyles);
 
@@ -46,8 +47,6 @@ const AddTask = () => {
       };
 
       let tasksArray;
-
-      // id++;
 
       if (tasks === null) {
         tasksArray = [task];
@@ -105,7 +104,9 @@ const AddTask = () => {
           className={style("submit")}
           onClick={handleSubmit}
         >
-          Dodaj zadanie
+          <NavLink exact to="/">
+            Dodaj zadanie
+          </NavLink>
         </button>
       </form>
     </div>

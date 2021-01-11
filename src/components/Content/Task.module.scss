@@ -1,12 +1,13 @@
 .task {
   text-align: center;
   padding: 20px;
-  border-top: 20px solid rgb(146, 0, 0);
+  border-top: 20px solid rgba(53, 53, 53, 0.9);
   margin: 20px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.8);
   border-radius: 5px;
+  text-decoration: none;
 
-  @media (min-width: 1025px) {
+  @media (min-width: 767px) {
     width: 40%;
   }
 
@@ -15,6 +16,17 @@
     margin-top: 10px;
     display: flex;
     justify-content: space-evenly;
+
+    @media (min-width: 1025px) {
+      & > i {
+        transition-duration: 0.4s;
+      }
+
+      & > i:hover {
+        transform: rotate(360deg);
+        color: rgb(185, 0, 0);
+      }
+    }
   }
 
   &__background {
@@ -40,22 +52,60 @@
     transform: translate(-50%, -50%);
     min-width: 200px;
     min-height: 200px;
-    background-color: rgba(255, 255, 255, 1);
     text-align: center;
     padding: 20px;
-    border-top: 20px solid rgb(146, 0, 0);
+    border-top: 20px solid rgba(53, 53, 53, 0.9);
+    margin: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
     border-radius: 5px;
+    text-decoration: none;
+
+    @media (min-width: 1025px) {
+      min-width: 500px;
+      min-height: 200px;
+    }
   }
 
-  &__submit {
-    display: block;
-    width: 100px;
-    text-transform: uppercase;
+  &__taskName {
+    min-width: 400px;
+  }
+
+  &__button {
+    background-color: rgba(0, 0, 0, 0.9);
+    width: 175px;
+    margin: 15px auto;
+    padding: 15px;
+    border-radius: 20px;
     color: white;
-    background-color: rgb(146, 0, 0);
-    padding: 10px;
-    border: none;
-    margin: 5px auto;
+    border: 1px solid black;
+    text-transform: uppercase;
+    transition-duration: 0.3s;
+
+    &:hover {
+      color: rgb(41, 41, 41);
+      background-color: rgb(180, 180, 180);
+      border: 1px solid rgb(0, 0, 0);
+    }
+
+    & > p {
+      text-decoration: none;
+    }
+  }
+
+  &__important {
+    text-align: center;
+    padding: 20px;
+    border-top: 20px solid rgba(128, 0, 0, 0.9);
+    margin: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
     border-radius: 5px;
+
+    @media (min-width: 767px) {
+      width: 40%;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
   }
 }

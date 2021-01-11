@@ -3,6 +3,7 @@ import bemCssModule from "bem-css-modules";
 
 import { default as TaskStyles } from "./Task.module.scss";
 import { StoreContext } from "../../store/StoreProvider";
+import { NavLink } from "react-router-dom";
 
 const style = bemCssModule(TaskStyles);
 
@@ -16,11 +17,6 @@ const Task = () => {
   const [taskImportant, setTaskImportant] = useState(false);
 
   const { tasks, setTasks } = useContext(StoreContext);
-
-  const taskToBeDone =
-    tasks !== null && tasks.length >= 0
-      ? tasks.filter((task) => !task.done)
-      : null;
 
   const handleCheck = (id) => {
     const taskArray = tasks.map((task) => {
@@ -94,36 +90,56 @@ const Task = () => {
     }
   };
 
+  const taskToBeDone =
+    tasks !== null && tasks.length >= 0
+      ? tasks.filter((task) => !task.done)
+      : null;
+
   const task =
     taskToBeDone !== null && taskToBeDone.length >= 0
-      ? taskToBeDone.map(
-          (task) => (
-            <div key={task.id} className={style()}>
-              <p>{task.name}</p>
-              <p>{task.date}</p>
-              <div className={style("icons")}>
-                <i
-                  class="fas fa-check"
-                  onClick={() => handleCheck(task.id)}
-                ></i>
-                <i
-                  class="fas fa-edit"
-                  onClick={() => handleModifyTask(task.id)}
-                ></i>
-                <i
-                  class="fas fa-trash-alt"
-                  onClick={() => handleDeleteTask(task.id)}
-                ></i>
+      ? taskToBeDone.map((task) => {
+          if (!task.done) {
+            return (
+              <div
+                key={task.id}
+                className={task.important ? style("important") : style()}
+              >
+                <p>{task.name}</p>
+                <p>{task.date}</p>
+                <div className={style("icons")}>
+                  <i
+                    class="fas fa-check"
+                    onClick={() => handleCheck(task.id)}
+                  ></i>
+                  <i
+                    class="fas fa-edit"
+                    onClick={() => handleModifyTask(task.id)}
+                  ></i>
+                  <i
+                    class="fas fa-trash-alt"
+                    onClick={() => handleDeleteTask(task.id)}
+                  ></i>
+                </div>
               </div>
-            </div>
-          )
-          // }
-        )
-      : "Brak zadań do wykoniania";
+            );
+          } else return null;
+        })
+      : null;
 
   return (
     <>
-      {task}
+      {task !== null && task.length > 0 ? (
+        task
+      ) : (
+        <div className={style()}>
+          <p>Brak zadań do wykonania</p>
+          <NavLink exact to="/add-task" className={style("link")}>
+            <div className={style("button")}>
+              <p>Dodaj zadanie</p>
+            </div>
+          </NavLink>
+        </div>
+      )}
       {popUpIsActive ? (
         <div className={style("background")}>
           <div className={style("popup")}>
@@ -137,6 +153,7 @@ const Task = () => {
                   type="text"
                   name="newName"
                   placeholder="Podaj nową nazwę"
+                  className={style("taskName")}
                   value={taskName}
                   onChange={handleTaskName}
                 />
@@ -160,9 +177,10 @@ const Task = () => {
                   className={style("checkbox")}
                 />
               </label>
+              <br />
               <button
                 type="submit"
-                className={style("submit")}
+                className={style("button")}
                 onClick={handleSubmit}
               >
                 Edytuj zadanie

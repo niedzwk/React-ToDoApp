@@ -1,17 +1,21 @@
 import { HashRouter as Router } from "react-router-dom";
-import "./App.css";
 import Content from "./components/Content/Content";
 import Header from "./components/Header/Header";
 import Menu from "./components/Menu/Menu";
 import StoreProvider from "./store/StoreProvider";
+import bemCssModule from "bem-css-modules";
+
+import { default as AppStyle } from "./App.module.scss";
+
+const style = bemCssModule(AppStyle);
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <StoreProvider>
         <Header />
         <Router basename={process.env.PUBLIC_URL}>
-          <div>
+          <div className={style()}>
             <Menu />
             <Content />
           </div>

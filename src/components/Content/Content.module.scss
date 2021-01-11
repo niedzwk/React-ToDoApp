@@ -1,12 +1,26 @@
 .content {
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.4);
+
+  @media (min-width: 767px) {
+    flex-direction: row;
+    flex-grow: 1;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 
   @media (min-width: 1025px) {
+    width: 1025px;
+    height: auto;
     padding-top: 20px;
     flex-direction: row;
     flex-grow: 1;
     justify-content: center;
     flex-wrap: wrap;
+    margin-top: 20px;
+    border-radius: 20px;
   }
 }
