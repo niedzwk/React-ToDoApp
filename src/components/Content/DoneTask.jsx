@@ -4,6 +4,9 @@ import bemCssModule from "bem-css-modules";
 import { default as DoneTaskStyles } from "./Task.module.scss";
 import { StoreContext } from "../../store/StoreProvider";
 
+import compare from "../../function/compare"
+
+
 const style = bemCssModule(DoneTaskStyles);
 
 const DoneTask = (props) => {
@@ -17,10 +20,22 @@ const DoneTask = (props) => {
     localStorage.setItem("task", JSON.stringify(taskArray));
   };
 
+  // function compare( a, b ) {
+  //   if ( a.date < b.date ){
+  //     return -1;
+  //   }
+  //   if ( a.date > b.date ){
+  //     return 1;
+  //   }
+  //   return 0;
+  // }
+
   const taskToBeDone =
     tasks !== null && tasks.length >= 0
       ? tasks.filter((task) => task.done)
       : null;
+
+  taskToBeDone.sort(compare)
 
   const task =
     taskToBeDone !== null && taskToBeDone.length >= 0 ? (

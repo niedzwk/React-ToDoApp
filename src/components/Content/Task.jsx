@@ -14,9 +14,20 @@ const Task = () => {
   const [taskDate, setTaskDate] = useState(
     new Date().toISOString().slice(0, 10)
   );
+
   const [taskImportant, setTaskImportant] = useState(false);
 
   const { tasks, setTasks } = useContext(StoreContext);
+
+  function compare( a, b ) {
+    if ( a.date < b.date ){
+      return -1;
+    }
+    if ( a.date > b.date ){
+      return 1;
+    }
+    return 0;
+  }
 
   const handleCheck = (id) => {
     const taskArray = tasks.map((task) => {
@@ -95,6 +106,8 @@ const Task = () => {
       ? tasks.filter((task) => !task.done)
       : null;
 
+  taskToBeDone.sort(compare)
+
   const task =
     taskToBeDone !== null && taskToBeDone.length >= 0
       ? taskToBeDone.map((task) => {
@@ -108,15 +121,15 @@ const Task = () => {
                 <p>{task.date}</p>
                 <div className={style("icons")}>
                   <i
-                    class="fas fa-check"
+                    className="fas fa-check"
                     onClick={() => handleCheck(task.id)}
                   ></i>
                   <i
-                    class="fas fa-edit"
+                    className="fas fa-edit"
                     onClick={() => handleModifyTask(task.id)}
                   ></i>
                   <i
-                    class="fas fa-trash-alt"
+                    className="fas fa-trash-alt"
                     onClick={() => handleDeleteTask(task.id)}
                   ></i>
                 </div>
@@ -144,7 +157,7 @@ const Task = () => {
         <div className={style("background")}>
           <div className={style("popup")}>
             <div className={style("close")} onClick={closePopUp}>
-              <i class="fas fa-times"></i>
+              <i className="fas fa-times"></i>
             </div>
             <form>
               <label>

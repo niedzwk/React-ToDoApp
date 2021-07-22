@@ -6,25 +6,25 @@ const StoreProvider = ({ children }) => {
   const [isActive, setIsActive] = useState(false);
   const [tasks, setTasks] = useState([]);
 
+  //function for sorting tasks by date
+  function compare( a, b ) {
+    if ( a.date < b.date ){
+      return -1;
+    }
+    if ( a.date > b.date ){
+      return 1;
+    }
+    return 0;
+  }
+
   const fetchData = async () => {
     const data = JSON.parse(localStorage.getItem("task"));
     setTasks(data);
-    console.log("fdfsd");
+    // data.sort(compare);
+    // console.log(data);
   };
 
-  //   const ob = [
-  //     {
-  //       one: 1,
-  //       two: 2,
-  //     },
-  //     {
-  //       one: 1,
-  //       two: 2,
-  //     },
-  //   ];
-
   useEffect(() => {
-    // localStorage.setItem("task", JSON.stringify(ob));
     fetchData();
   }, []);
 
